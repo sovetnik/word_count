@@ -1,4 +1,6 @@
 defmodule WordCount.CLI do
+  alias WordCount.Counter
+
   def main(args) do
     args |> parse_args |> process_args
   end
@@ -11,9 +13,11 @@ defmodule WordCount.CLI do
 
   def process_args(file: filename) do
     case check_file(filename) do
-      false -> IO.puts("File #{filename} is not exists")
-      true -> IO.puts("File #{filename} exists")
-        # parse file and count words
+      false ->
+        IO.puts("File #{filename} is not exists")
+
+      true ->
+        IO.puts(Counter.process(stream_file(filename)))
     end
   end
 
