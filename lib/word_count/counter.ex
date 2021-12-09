@@ -1,4 +1,6 @@
 defmodule WordCount.Counter do
+  @moduledoc "Counter module, which accepts stream"
+
   def process(stream) do
     Enum.reduce(
       stream,

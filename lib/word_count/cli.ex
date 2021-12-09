@@ -1,4 +1,6 @@
 defmodule WordCount.CLI do
+  @moduledoc "Command line interface"
+
   alias WordCount.Counter
 
   def main(args) do

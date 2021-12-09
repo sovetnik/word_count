@@ -1,3 +1,5 @@
+[![Elixir CI](https://github.com/sovetnik/word_count/actions/workflows/elixir.yml/badge.svg?branch=master)](https://github.com/sovetnik/word_count/actions/workflows/elixir.yml)
+
 # WordCount
 
 Analog of UNIX wc cli app
