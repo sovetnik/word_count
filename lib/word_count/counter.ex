@@ -13,12 +13,14 @@ defmodule WordCount.Counter do
     split(string)
     |> Enum.reduce(
       0,
-      fn word, count -> count + is_word(word) end
+      fn word, count ->
+        count + is_word(word)
+      end
     )
   end
 
-  def split(string) do
-    String.split(string, ~r/[\s\t\n]/)
+  defp split(string) do
+    String.split(string, ~r/[\s\t\n]+/)
   end
 
   defp is_word(""), do: 0

@@ -13,7 +13,7 @@ defmodule WordCount.CLI do
     params
   end
 
-  def process_args(file: filename) do
+  defp process_args(file: filename) do
     case check_file(filename) do
       false ->
         IO.puts("File #{filename} is not exists")
@@ -23,23 +23,23 @@ defmodule WordCount.CLI do
     end
   end
 
-  def process_args(help: true) do
+  defp process_args(help: true) do
     IO.puts("\nThe WordCount counts words in given text file")
     IO.puts("and receive only one parameter at once\n")
-    IO.puts("\nExample: ./word_count --file file.txt\n")
-    IO.puts("\nPrint this message again: ./word_count --help\n")
+    IO.puts("Example: ./word_count --file file.txt\n")
+    IO.puts("Print this message again: ./word_count --help\n")
   end
 
-  def process_args(_) do
-    IO.puts("\nThe WordCount counts words in given text file\n")
-    IO.puts("\nRTFM: ./word_count --help\n")
+  defp process_args(_) do
+    IO.puts("The WordCount counts words in given text file\n")
+    IO.puts("RTFM: ./word_count --help\n")
   end
 
-  def check_file(filename) do
+  defp check_file(filename) do
     File.exists?(filename)
   end
 
-  def stream_file(filename) do
+  defp stream_file(filename) do
     File.stream!(filename)
   end
 end
