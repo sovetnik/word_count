@@ -7,8 +7,6 @@ defmodule WordCount.CLITest do
   @non_existing_filename "non_exist.md"
 
   test "count words if file exists" do
-    assert CLI.main(["--file", @existing_filename]) == :ok
-
     assert capture_io(fn ->
              CLI.main(["--file", @existing_filename])
            end) == "39\n"
