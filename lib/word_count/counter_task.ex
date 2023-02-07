@@ -5,12 +5,10 @@ defmodule WordCount.CounterTask do
 
   def count_words(string, agent) do
     split(string)
-    |> Enum.reduce(
-      0,
-      fn word, count ->
-        count + is_word(word)
-      end
-    )
+    |> Enum.reduce(%{}, fn(word, map) ->
+      Map.update(map, word, 1, &(&1 + 1))
+    end)
+    |> Enum.to_list()
     |> CounterAgent.add(agent)
   end
 
@@ -18,6 +16,6 @@ defmodule WordCount.CounterTask do
     String.split(string, ~r/[\s\t\n]+/)
   end
 
-  defp is_word(""), do: 0
-  defp is_word(_), do: 1
+  #defp is_word(""), do: 0
+  #defp is_word(_), do: 1
 end
