@@ -4,7 +4,8 @@ defmodule WordCount.CounterTask do
   alias WordCount.CounterAgent
 
   def count_words(string, agent) do
-    split(string)
+    string
+    |> split()
     |> Enum.reduce(
       0,
       fn word, count ->
